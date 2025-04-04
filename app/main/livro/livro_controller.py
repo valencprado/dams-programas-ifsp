@@ -28,8 +28,10 @@ class LivroIdController(Resource):
         return LivroDb.obter(id), 200
     
     @api.response(200, 'Busca realizada com sucesso')
-    @api.param('nome', 'Nome do livro')
-    @api.param('sinopse', 'Sinopse do livro')
+    # @api.param('nome', 'Nome do livro')
+    # @api.param('sinopse', 'Sinopse do livro')
+    # @api.param('autor', 'Autor do livro')
+    @api.expect(modelo)
     def put(self, id):
         return LivroDb.alterar(id, request.json), 200
     
